@@ -9,7 +9,7 @@ autopublish
 insecure
 iron:router
 mquandalle:jade
-accounts-ui
 accounts-google
 tomi:upload-server
 tomi:upload-jquery
+accounts-ui-unstyled
