@@ -1,6 +1,17 @@
-p Hi!
-.card
-	.image
-		img.card-image(src="http://lorempixel.com/400/220")
-	p #{distance}
-	p #{name}
+.card-page
+	.card-back-link
+		a(href="{{pathFor 'listView'}}") 
+			i.material-icons chevron_left
+	.card-page-image
+		img(src="http://lorempixel.com/400/220")
+	
+		h2 #{name}
+		p #{distance} miles away
+
+		table.card-table
+			tr
+				td Category
+				td ---
+			tr
+				td Address
+				td ---

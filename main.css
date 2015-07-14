@@ -1,114 +1,153 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
-
 @font-face{
     font-family:"Guardian-EgypTT";
     src: url("https://www.etsy.com/assets/type/Guardian-EgypTT-Medium.woff") format("woff");
 }
 
-			* {
-				margin: 0;
-				padding: 0;
-				font-family: 'Roboto Slab', serif;
-			}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Slab', serif;
+}
 
-			.header {
-				background-color: #f56400;
-				height: 400px;
-				width: 100%;
-				display: table;
-			    -webkit-transition: height 1s;
-			    -moz-transition: height 1;
-			    -ms-transition: height 1s;
-			    -o-transition: height 1s;
-			    transition: height 1s;
-			}
+* a {
+	text-decoration: none;
+	color: #909090;
+}
 
-			.header-content {
-				display: table-cell;
-				vertical-align: middle;
-				text-align: center;
-			}
+body {
+	background: #F5F5F1;
+}
 
-			.header h1 {
-				font-size: 60px;
-				color: #fff;
-				font-family: "Guardian-EgypTT";
-			}
+.header {
+	background-color: #f56400;
+	height: 400px;
+	width: 100%;
+	display: table;
+    -webkit-transition: height 1s;
+    -moz-transition: height 1;
+    -ms-transition: height 1s;
+    -o-transition: height 1s;
+    transition: height 1s;
+}
 
-			.header-search {
-				margin-top: 30px;
-			}
+.header-content {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
 
-			.header-search-input {
-				padding: 8px;
-				background: #fff;
-				border: 1px solid #fff;
-			}
+.header h1 {
+	font-weight: 100;
+	font-size: 60px;
+	color: #fff;
+	font-family: "Guardian-EgypTT";
+}
 
-			.header-search-button {
-				margin-left: -8px;
-				padding: 8px;
-				background: #34A8C4;
-				border: 1px solid #34A8C4;
-				color: #fff;
-			}
+.header-search {
+	margin-top: 30px;
+}
 
-			.header-search:focus, .header-search-button:focus {
-				outline: none;
-				border: 1px solid #fff;
-			}
+.header-search-input {
+	padding: 8px;
+	background: #fff;
+	border: 1px solid #fff;
+}
 
-			.smaller {
-				top: 0px;
-				position: fixed;
-				height: 100px;
-			}
+.header-search-button {
+	margin-left: -8px;
+	padding: 8px;
+	background: #34A8C4;
+	border: 1px solid #34A8C4;
+	color: #fff;
+}
 
-			.smaller h1 {
-				font-size: 30px !important;
-			    -webkit-transition: all 1s;
-			    -moz-transition: all 1s;
-			    -ms-transition: all 1s;
-			    -o-transition: all 1s;
-			    transition: all 1s;
-			    float: left;
-			    margin-left: 30px;
-			}
+.header-search:focus, .header-search-button:focus {
+	outline: none;
+	border: 1px solid #fff;
+}
 
-			.smaller .header-search {
-				margin: 8px 30px 0 0;
-				float: right;
-			}
+.smaller {
+	top: 0px;
+	position: fixed;
+	height: 100px;
+}
 
-			.content {
-				padding: 30px;
-			}
+.smaller h1 {
+	font-size: 30px !important;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    float: left;
+    margin-left: 30px;
+}
 
-			.content-smaller {
-				margin-top: 300px;
-			}
+.smaller .header-search {
+	margin: 8px 30px 0 0;
+	float: right;
+}
 
-			.cards-container {
-				margin: 0 auto;
-				width: 80%;
-			}
+.content {
+	padding: 30px;
+}
 
-			.card {
-				margin: 0 auto;
-				float: left;
-				margin: 1%;
-				width: 30%;
-				height: 30%;
-				background: #eee;
-			}
+.content-smaller {
+	margin-top: 300px;
+}
 
-			.image {
-				width: 100%;
-				height: 75%;
-				overflow: hidden;
-			}
+.cards-container {
+	margin: 0 auto;
+	width: 80%;
+}
 
-			.image-card {
-				width: 100%;
-				height: 100%;
-			}
+.card {
+	margin: 0 auto;
+	float: left;
+	margin: 1%;
+	width: 30%;
+	height: 30%;
+	background: #eee;
+}
+
+.card .image {
+	width: 100%;
+	height: 75%;
+	overflow: hidden;
+}
+
+.image-card {
+	width: 100%;
+	height: 100%;
+}
+
+.card-details {
+	padding: 5px 10px;
+}
+
+.card-back-link {
+	float: left;
+	position: absolute;
+	font-size: 30px;
+}
+
+.card-title {
+	color: #34A8C4;
+}
+
+.card-page {
+	margin: 0 auto;
+	width: 80%;
+	background: #fff;
+	border: 1px solid #ddd;
+	text-align: center;
+	padding: 10px;
+	box-shadow: 0px 1px 2px #ddd;
+}
+
+.card-table {
+	text-align: left;
+	margin: 0 auto;
+	width: 300px;
+}
+

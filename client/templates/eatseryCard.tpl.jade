@@ -1,5 +1,6 @@
 a(href="{{pathFor 'eatseryPage'}}").card
 	.image
 		img.card-image(src="http://lorempixel.com/400/220")
-	p #{distance}
-	p #{name}
+	.card-details
+		p.card-title #{name} 
+		p #{distance} Miles
