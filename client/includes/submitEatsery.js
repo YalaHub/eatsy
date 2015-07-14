@@ -24,5 +24,5 @@ Template.submitEatsery.helpers({
   },
   errorClass: function (field) {
     return !!Session.get('submitEatseryErrors')[field] ? 'has-error' : '';
-  }
+  },
 });
