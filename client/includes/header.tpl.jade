@@ -1,8 +1,10 @@
-header
-	p.logo Eatsy
-
-	.searchbar
-		p search
-	span.toggle hi
-
-	p avatar
+.header#header
+	.header-content
+		a(href="{{pathFor 'listView'}}")
+			h1 Where Should I Eatsy
+		.header-search
+			input.header-search-input(placeholder="Currect Location")
+			button.header-search-button Search
+		+loginButtons
+		if(currentUser)
+			a(href="{{pathFor 'submitEatsery'}}") Submit Eatsery

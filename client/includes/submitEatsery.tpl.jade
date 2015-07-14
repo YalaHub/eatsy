@@ -1,0 +1,28 @@
+form.main.form.page
+	div(class="form-group")
+		label.control-label(for="name") Name
+		.controls
+			input.form-control#url(name="name", type="text", value"", placeholder="Eatesery Name")
+			span.help-block 
+
+	div(class="form-group")
+		label.control-label(for="category") Category
+		.controls
+			input.form-control#title(name="category", type="text", value"", placeholder="Type of Eatesery")
+			span.help-block 
+	div(class="form-group")
+		label.control-label(for="address") Address
+		.controls
+			input.form-control#title(name="address", type="text", value"", placeholder="Address")
+			p optional
+			span.help-block 
+	div(class="form-group")
+		label.control-label(for="website") Website
+		.controls
+			input.form-control#title(name="title", type="text", value"", placeholder="Website if available")
+			p optional
+			span.help-block 
+	div(class="form-group")
+		label.control-label(for="image") Image
+		+upload_bootstrap
+	input.btn.btn-primary(type="submit", value="Submit")
