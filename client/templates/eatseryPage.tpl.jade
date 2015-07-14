@@ -4,3 +4,5 @@ p Hi!
 		img.card-image(src="http://lorempixel.com/400/220")
 	p #{distance}
 	p #{name}
+	if(currentUser)
+		a(href="{{pathFor 'editEatsery' }}") Edit
