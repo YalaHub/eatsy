@@ -15,6 +15,13 @@ Template.submitEatsery.events({
 		var resultId = Eatsery.insert(eatsery);
 		Router.go('editEatsery', {_id: resultId});
 
+	}, 
+	'input #name': function(e) {
+		var params = {
+			intent: 'global',
+			query: $('#name').val(),
+		}
+		//do ajax here
 	}
 });
 
