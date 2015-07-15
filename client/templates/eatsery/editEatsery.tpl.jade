@@ -1,7 +1,8 @@
 .card-page
+	h2 Upload Photo 
 	form.main.form.page
 		.card-page-image(style="background-image:url(#{imagePath})")
 		div(class="form-group") 
-		label.control-label(for="image") Update image
+		label.control-label(for="image") #{name}
 		+upload_bootstrap fileTypes='.jpg' multiple=false formData=eatseryData
-		input.btn.btn-primary(type="submit", value="Save")
+		input.btn.btn-primary.edit-eatsery-button(type="submit", value="Save")

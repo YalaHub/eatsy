@@ -1,19 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
 
 @font-face{
     font-family:"Guardian-EgypTT";
     src: url("https://www.etsy.com/assets/type/Guardian-EgypTT-Medium.woff") format("woff");
 }
 
-
-* {
-	margin: 0;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-}
-
 * a {
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #909090;
 }
 
@@ -21,7 +14,12 @@ body {
 	background: #F5F5F1;
 }
 
+.filler-large {
+	height: 50px;
+}
+
 .header {
+	display: block;
 	border-bottom: 1px solid #ddd;
 	box-shadow: 0px 1px 2px #d0d0d0;
 	background-color: #f56400;
@@ -75,7 +73,12 @@ body {
 	color: #fff;
 }
 
-.header-search:focus, .header-search-button:focus {
+.header-search-input:focus {
+	outline: none;
+	background: #F5F5F1;
+}
+
+.header-search-button:focus {
 	outline: none;
 	border: 1px solid #fff;
 }
@@ -102,6 +105,10 @@ body {
 	float: right;
 }
 
+.smaller .submit-eatery {
+	margin-top: -40px;
+}
+
 .content {
 	padding: 30px;
 }
@@ -124,14 +131,14 @@ body {
 	margin: 20px;
 	display: inline-block;
 	width: 400px;
-	height: 250px;
+	height: 275px;
 	background: #fff;
 	border: 1px solid #ddd;
 	box-shadow: 0px 1px 2px #ddd;
 }
 
-.card .image {
-	width: 400px;
+.card .card-image-preview{
+	width: 392px;
 	height: 200px;
 }
 
@@ -172,10 +179,13 @@ body {
 	text-align: center;
 	padding: 10px;
 	box-shadow: 0px 1px 2px #ddd;
+	font-size: 14px;
+	color: #444;
 }
 
 .card-page h2 {
 	color: #34A8C4;
+	font-family: "Guardian-EgypTT";
 }
 
 .card-table {
@@ -186,6 +196,7 @@ body {
 }
 
 .card-page-image {
+	background-color: #eee;
 	height: 300px;
 	width: 400px;
 	margin: 0 auto;
@@ -199,87 +210,16 @@ body {
 	right: 10px;
 }
 
-.google-logo {
-	position: absolute;
-	top: 10px;
-	right: 160px;
-	width: 30px;
-	height: 30px;
-}
-
-/*// toggle button*/
-
-.toggle-wrapper {
-	float: left;
-}
-
-input#toggle {
-  max-height: 0;
-  max-width: 0;
-  opacity: 0;
-  float: left;
-}
-
-input#toggle + label {
-  display: block;
-  position: relative;
-  box-shadow: inset 0 0 0px 1px #d5d5d5;
-  text-indent: -5000px;
-  height: 30px;
-  width: 50px;
-  border-radius: 15px;
-}
-
-input#toggle + label:before {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 30px;
-  width: 30px;
-  top: 0;
-  left: 0;
-  border-radius: 15px;
-  background: rgba(52, 168, 196, 1);
-  -moz-transition: .25s ease-in-out;
-  -webkit-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
-}
-
-input#toggle + label:after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 30px;
-  width: 30px;
-  top: 0;
-  left: 0px;
-  border-radius: 15px;
-  background: white;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .2), 0 2px 4px rgba(0, 0, 0, .2);
-  -moz-transition: .25s ease-in-out;
-  -webkit-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
-}
-
-input#toggle:checked + label:before {
-  width: 50px;
-  background: rgba(52, 168, 196, 1);
-}
-
-input#toggle:checked + label:after {
-  left: 20px;
-  box-shadow: inset 0 0 0 1px rgba(52, 168, 196, 1), 0 2px 4px rgba(0, 0, 0, .2);
-}
-
 /*second toggle options*/
 
 .toggle-container {
-	padding-top: 50px;
+	padding-top: 30px;
 	margin: 0 auto;
 	width: 645px;
 	height: 30px;
 	font-size: 13px;
 	text-align: center;
+	margin-bottom: 20px;
 }
 
 .toggle-list {
@@ -295,7 +235,7 @@ input#toggle:checked + label:after {
 }
 
 .toggle-map {
-	color: #666;
+	color: #444;
 	box-shadow: 0px 0px 3px #ddd;
 	padding: 10px;
 	width: 300px;
@@ -307,3 +247,179 @@ input#toggle:checked + label:after {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
+
+/*login button*/
+
+.login-button-container {
+	border: 2px solid #fff;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 165px;
+	height: 45px;
+	padding-right: 8px;
+	border-radius: 5px;
+}
+
+.sign-in-text-google {
+	font-weight: 300;
+	color: #fff;
+	font-size: 13px;
+}
+
+.google-logo {
+	margin: 10px 0 0 10px;
+	float: left;
+	width: 25px;
+	height: 25px;
+}
+
+.login-display-name {
+	display: none;
+}
+
+#login-buttons-logout {
+	font-weight: 300;
+	float: left;
+	color: #fff;
+	font-size: 13px;
+}
+
+.login-button-text {
+	margin-top: 10px;
+}
+
+/* submit eatery */
+
+.submit-eatery {
+	color: #fff;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin: 0 auto;
+	padding: 10px;
+	width: 140px;
+}
+
+.submit-eatery a, .edit-eatsery a {
+	color: #fff;
+	font-weight: 300;
+	font-size: 15px;
+}
+
+.edit-eatsery {
+	color: #fff;
+	margin-top: 30px;
+	padding: 10px;
+	width: 100px;
+	background: #34A8C4;
+	border-radius: 5px;
+}
+
+.edit-eatsery-button {
+	margin-top: 20px;
+}
+
+/* bootstrap */
+
+/*.uploadPanel .upload-control:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+.btn:hover, .btn:focus, .btn.focus {
+  color: #333;
+  text-decoration: none;
+}
+
+.uploadPanel .btn {
+  display: table-cell;
+  width: 1%;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.progressInner {
+  height: 33px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+input[type="file"] {
+  display: block;
+}
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+input {
+  line-height: normal;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+*/
