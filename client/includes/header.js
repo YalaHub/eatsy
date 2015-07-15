@@ -22,3 +22,12 @@ function init() {
     });
 }
 window.onload = init();
+
+
+Template.header.onRendered(function() {
+  this.autorun(function () {
+    if (GoogleMaps.loaded()) {
+      $("#location").geocomplete();
+    }
+  });
+});

@@ -5,7 +5,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 mquandalle:jade
 accounts-google
@@ -16,4 +15,5 @@ meteorhacks:kadira
 fourseven:scss
 audit-argument-checks
 sacha:spin
-twbs:bootstrap
+dburles:google-maps
+jeremy:geocomplete
