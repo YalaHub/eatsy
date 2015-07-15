@@ -1,5 +1,5 @@
 Template.listView.helpers( {
 	eatsery: function() {
-		return Eatsery.find({}, {sort: {distance: -1}});
+		return Eatsery.find({}, {sort: {distance: 1}});
 	},
 });

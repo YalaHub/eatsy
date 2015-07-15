@@ -22,7 +22,8 @@ form.main.form.page
 			input.form-control#title(name="title", type="text", value="", placeholder="website")
 			p optional
 			span.help-block 
-	div(class="form-group")
-		label.control-label(for="image") Image
-		+upload_bootstrap
+	//TODO: Fix issue where upload image does not overwrite the last one.
+	//- div(class="form-group") 
+	//- 	label.control-label(for="image") Image
+	//- 	+upload_bootstrap fileTypes='.jpg' multiple=false formData=eatseryData
 	input.btn.btn-primary(type="submit", value="Save")
