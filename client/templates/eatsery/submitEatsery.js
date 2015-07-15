@@ -17,11 +17,12 @@ Template.submitEatsery.events({
 
 	}, 
 	'input #name': function(e) {
-		var params = {
-			intent: 'global',
-			query: $('#name').val(),
-		}
-		//do ajax here
+		$('#my_input').fs_suggest({
+		    'client_id'     : 'P4XVVYLP4AEUKISH3PMQ3IVDST00J0SZHDIHOA2Y5V3TCIIY',
+		    'client_secret' : 'TOVQWYEOEQ0EORP1ZPULWZEFTCPQ3KBOI1ESCEMVQNIWXS3Z',
+		    'll' : '37.787920,-122.407458', 
+		    'limit' : 10 
+		});
 	}
 });
 
