@@ -13,7 +13,7 @@ Template.submitEatsery.events({
 		};
 
 		var resultId = Eatsery.insert(eatsery);
-		Router.go('eatseryPage', {_id: resultId});
+		Router.go('editEatsery', {_id: resultId});
 
 	}
 });
@@ -25,9 +25,4 @@ Template.submitEatsery.helpers({
   errorClass: function (field) {
     return !!Session.get('submitEatseryErrors')[field] ? 'has-error' : '';
   },
-  eatseryData: function() {
-  	return {
-  		id: this._id
-  	};
-  }
 });

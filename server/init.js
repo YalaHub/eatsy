@@ -1,3 +1,4 @@
+
 Meteor.startup(function () {
   UploadServer.init({
     tmpDir: process.env.PWD + '/.uploads/tmp',
@@ -5,11 +6,13 @@ Meteor.startup(function () {
     overwrite: true,
     crop: true,
     getFileName: function(fileInfo, formData) {
-    	console.log("fileInfo");
-    	console.log(fileInfo);
-    	console.log("formData");
-    	console.log(formData);
-    	return formData.id + '.jpg'; 
+        var filename = formData.id + '.jpg';
+        try {
+            UploadServer.delete( filename);    
+        } catch (error) {
+            console.log("This file is new!");
+        }
+        return filename;     
     },
     checkCreateDirectories: true,
   })

@@ -26,8 +26,8 @@ Template.editEatsery.helpers({
     return !!Session.get('eatserySubmitErrors')[field] ? 'has-error' : '';
   },
   eatseryData: function() {
-  	return {
-  		id: this._id
-  	};
+    return {
+      id: this._id
+    };
   }
 });

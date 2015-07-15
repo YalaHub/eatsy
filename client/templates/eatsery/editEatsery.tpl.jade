@@ -8,22 +8,20 @@ form.main.form.page
 	div(class="form-group")
 		label.control-label(for="category") Category
 		.controls
-			input.form-control#title(name="category", type="text", value="", placeholder="category")
+			input.form-control#title(name="category", type="text", value="#{category}", placeholder="What type of noms is it?")
 			span.help-block 
 	div(class="form-group")
 		label.control-label(for="address") Address
 		.controls
-			input.form-control#title(name="address", type="text", value="#{location}")
+			input.form-control#title(name="address", type="text", value="#{location}", placeholder="Enter the address!")
 			p optional
 			span.help-block 
 	div(class="form-group")
 		label.control-label(for="website") Website
 		.controls
-			input.form-control#title(name="title", type="text", value="", placeholder="website")
-			p optional
+			input.form-control#title(name="title", type="text", value="#{location}", placeholder="Does this Eatsery have a website?")
 			span.help-block 
-	//TODO: Fix issue where upload image does not overwrite the last one.
-	//- div(class="form-group") 
-	//- 	label.control-label(for="image") Image
-	//- 	+upload_bootstrap fileTypes='.jpg' multiple=false formData=eatseryData
+	div(class="form-group") 
+		label.control-label(for="image") Image
+		+upload_bootstrap fileTypes='.jpg' multiple=false formData=eatseryData
 	input.btn.btn-primary(type="submit", value="Save")

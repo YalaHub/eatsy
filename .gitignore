@@ -1,4 +1,4 @@
 .meteor/local
 .meteor/meteorite
 *.jpg
-
+.uploads/tmp/*
