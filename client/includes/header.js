@@ -22,9 +22,16 @@ window.onload = init();
 
 
 Template.header.onRendered(function() {
-  this.autorun(function () {
-    if (GoogleMaps.loaded()) {
-      $("#location").geocomplete();
-    }
-  });
+    this.autorun(function () {
+        if (GoogleMaps.loaded()) {
+            $("#location").geocomplete();
+        }
+        if(Geolocation) {
+            var currLocation = Geolocation.currentLocation();
+            if(currLocation) {
+                Session.set({location: currLocation.coords});
+                $("#location").attr("placeholder", "Current Location");
+            }
+        }
+    });
 });
