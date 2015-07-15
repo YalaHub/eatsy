@@ -1,0 +1,15 @@
+.card-page-details
+	.card-page-image(style="background-image:url(#{imagePath})")
+
+	h2 #{name}
+	p #{distance} miles away
+
+	table.card-table
+		tr
+			td Category
+			td ---
+		tr
+			td Address
+			td ---
+if(currentUser)
+	a(href="{{pathFor 'editEatsery' }}") Edit

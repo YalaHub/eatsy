@@ -1,9 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
 @font-face{
     font-family:"Guardian-EgypTT";
     src: url("https://www.etsy.com/assets/type/Guardian-EgypTT-Medium.woff") format("woff");
 }
 
-@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 * {
 	margin: 0;

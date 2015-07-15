@@ -29,5 +29,8 @@ Template.editEatsery.helpers({
     return {
       id: this._id
     };
+  },
+  imagePath: function() {
+    return getImagePath(this._id);
   }
 });
