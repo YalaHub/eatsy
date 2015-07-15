@@ -1,5 +1,5 @@
 Template.eatseryPage.helpers({
 	imagePath: function() {
-		return 'images/' + this._id + '.jpg';
+		return getImagePath(this._id);
 	}
 }); 

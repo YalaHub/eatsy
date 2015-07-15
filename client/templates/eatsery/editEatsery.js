@@ -24,5 +24,10 @@ Template.editEatsery.helpers({
   },
   errorClass: function (field) {
     return !!Session.get('eatserySubmitErrors')[field] ? 'has-error' : '';
+  },
+  eatseryData: function() {
+  	return {
+  		id: this._id
+  	};
   }
 });
