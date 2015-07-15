@@ -1,4 +1,6 @@
 (function( $ ) {
+
+	console.log("before suggest");
 	
 	//keep track of which results list item is selected
 	//TODO change term to "results list"
@@ -11,14 +13,16 @@
 	var resultsListID = ""
 	
 	$.fn.fs_suggest = function(options) {
+
+		console.log("suggest");
 		
 		var defaults = {
 			url	: 'https://api.foursquare.com/v2/venues/suggestCompletion?', // i suppose you could change this...
 			ll : '37.787920,-122.407458', //default to SF since it's well known
 			v : '20120515', //the date of the foursquare api version
 			limit : 10, //perhaps an option to ignore limits
-			client_id : "YOUR_FS_CLIENT_ID", //get this from foursquare.com
-			client_secret : "YOUR_FS_CLIENT_SECRET", //same
+			client_id : 'P4XVVYLP4AEUKISH3PMQ3IVDST00J0SZHDIHOA2Y5V3TCIIY', //get this from foursquare.com
+			client_secret : 'TOVQWYEOEQ0EORP1ZPULWZEFTCPQ3KBOI1ESCEMVQNIWXS3Z', //same
 			style_results: true //set to false if the way i control the position of results, you can do it yourse
 								//the default is to be right under the input and match the width of the input
 								//and hopefully to adjust in a responsive way
@@ -254,3 +258,4 @@
 	
 	
 })( jQuery );
+

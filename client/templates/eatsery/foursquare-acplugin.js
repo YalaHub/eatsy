@@ -1,6 +1,10 @@
 (function ($) {
 
+console.log("plugin");
+
     $.foursquareAutocomplete = function (element, options) {
+
+        console.log("autocomplete");
         this.options = {};
 
         element.data('foursquareAutocomplete', this);
@@ -111,8 +115,8 @@
         'latitude': 47.22,
         'longitude': -122.2,
         'oauth_token': "",
-        'client_id': "",
-        'client_secret': "",
+        'client_id': "P4XVVYLP4AEUKISH3PMQ3IVDST00J0SZHDIHOA2Y5V3TCIIY",
+        'client_secret': "TOVQWYEOEQ0EORP1ZPULWZEFTCPQ3KBOI1ESCEMVQNIWXS3Z",
         'minLength': 3,
         'select': function (event, ui) {},
         'onError': function (errorCode, errorType, errorDetail) {},
