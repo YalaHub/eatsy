@@ -2,16 +2,16 @@
 	.card-page-image(style="background-image:url(#{imagePath})")
 
 	h2 #{name}
-	p.card-distance #{distance} miles away
+	p.card-distance #{distanceText} miles away
 
 	table.card-table
 		tr
-			td Category
-			td ---
-		tr
 			td Address
-			td ---
-if(currentUser)
-	center
-		.edit-eatsery
-			a(href="{{pathFor 'editEatsery' }}") Edit
+			td #{address}
+		tr
+			td Phone
+			td #{phone}
+		tr
+			td Website
+			td
+				a(href="#{website}") #{website}

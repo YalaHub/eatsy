@@ -4,13 +4,13 @@
 			.header-logo
 		a(href="{{pathFor 'listView'}}")
 			h1 Where Should I Eatsy
-		.header-search
-			input#location.header-search-input(placeholder="Currect Location")
-			button.header-search-button(disabled) 
-				i.fa.fa-search
+		if currentUser
+			.header-search.admin
+				+locationBar
+		else 
+			.header-search.user
+				+locationBar
 		.button-container
 			+loginButtons
 			if(currentUser)
 				a.link-button-style(href="{{pathFor 'submitEatsery'}}") Submit Eatsery
-.toggle#toggle
-	+toggle

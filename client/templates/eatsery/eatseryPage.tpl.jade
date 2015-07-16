@@ -1,5 +1,13 @@
 .card-page
 	.card-back-link
 		a(href="{{pathFor 'listView'}}") 
-			i.material-icons chevron_left
+			i.fa.fa-chevron-left
+	if(currentUser)
+		.manage-eatsery
+			a(href="{{pathFor 'editEatsery' }}")
+				.edit-eatsery
+					i.fa.fa-pencil
+			.delete-eatsery
+				i.fa.fa-trash
 	+eatseryInfo
+
