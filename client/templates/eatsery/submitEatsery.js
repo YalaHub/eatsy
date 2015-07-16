@@ -6,24 +6,17 @@ Template.submitEatsery.events({
 	'submit form': function(e) {
 		e.preventDefault();
 
-		var eatsery = {
-			name: $(e.target).find('[name=name]').val(),
-			location: $(e.target).find('[name=address]').val(),
-			distance: 2
-		};
-
+		var eatsery = Session.get('eatsery');
+		//Todo: block trying to add same eatsery
+		var previoslySubmittedEatsery = Eatsery.findOne({placeId: eatsery.placeId});
+		if(previoslySubmittedEatsery) {
+			console.log("place already inserted!");
+			Router.go('eatseryPage', {_id: previoslySubmittedEatsery._id})
+		}
 		var resultId = Eatsery.insert(eatsery);
 		Router.go('editEatsery', {_id: resultId});
 
 	}, 
-	'input #name': function(e) {
-		$('#my_input').fs_suggest({
-		    'client_id'     : 'P4XVVYLP4AEUKISH3PMQ3IVDST00J0SZHDIHOA2Y5V3TCIIY',
-		    'client_secret' : 'TOVQWYEOEQ0EORP1ZPULWZEFTCPQ3KBOI1ESCEMVQNIWXS3Z',
-		    'll' : '37.787920,-122.407458', 
-		    'limit' : 10 
-		});
-	}
 });
 
 Template.submitEatsery.helpers({
@@ -33,4 +26,32 @@ Template.submitEatsery.helpers({
   errorClass: function (field) {
     return !!Session.get('submitEatseryErrors')[field] ? 'has-error' : '';
   },
+});
+
+
+Template.submitEatsery.onRendered(function() {
+    this.autorun(function () {
+        if (GoogleMaps.loaded()) {
+            try{
+                var eatseryName = document.getElementById('name');
+                var autocomplete = new google.maps.places.Autocomplete(eatseryName);
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                	var place = autocomplete.getPlace();
+                	var eatsery = {
+                		address: place.formatted_address,
+                		phone: place.formatted_phone_number,
+                		placeId: place.place_id,
+                		website: place.website,
+                		priceLevel: place.priceLevel,
+                		name: place.name,
+                		location: place.geometry.location
+                	};
+                	Session.set('eatsery', eatsery);
+                });
+            } catch(Error) {
+                console.log('error');
+                //todo throwError
+            }
+        }
+    });
 });

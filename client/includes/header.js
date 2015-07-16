@@ -20,17 +20,37 @@ function init() {
 }
 window.onload = init();
 
+var chosenLocation = {};
 
 Template.header.onRendered(function() {
     this.autorun(function () {
         if (GoogleMaps.loaded()) {
-            $("#location").geocomplete();
+            try{
+                var userLocation = document.getElementById('location');
+                var autocomplete = new google.maps.places.Autocomplete(userLocation);
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    var coords = {
+                        lat: place.geometry.location.lat(),
+                        lng: place.geometry.location.lng()
+                    };
+                    Session.set('location', coords);
+                });
+            
+            } catch(Error) {
+                console.log('error');
+                //todo throwError
+            }
         }
         if(Geolocation) {
             var currLocation = Geolocation.currentLocation();
             if(currLocation) {
-                Session.set({location: currLocation.coords});
-                $("#location").attr("placeholder", "Current Location");
+                var coords = {
+                    lat: currLocation.coords.latitude,
+                    lng: currLocation.coords.longitude
+                };
+                Session.set('location', coords);
+                $("#location").attr("placeholder", "Using current location..");
             }
         }
     });
