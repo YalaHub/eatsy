@@ -66,6 +66,8 @@ body {
 	box-shadow: 2px 0px 5px #999;
 	font-size: 15px;
 	margin-left: -8px;
+	margin-top: 5px;
+	overflow: hidden;
 	padding: 10px;
 	background: #34A8C4;
 	border: 1px solid #34A8C4;
