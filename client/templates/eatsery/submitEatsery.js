@@ -3,7 +3,7 @@ Template.submitEatsery.events({
 		e.preventDefault();
 
 		var eatsery = Session.get('eatsery');
-		//Todo: block trying to add same eatsery
+        // validateEatsery(eatsery);
 		var previoslySubmittedEatsery = Eatsery.findOne({placeId: eatsery.placeId});
 		if(previoslySubmittedEatsery) {
 			console.log("place already inserted!");

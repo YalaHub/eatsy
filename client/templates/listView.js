@@ -20,26 +20,28 @@ Template.listView.onRendered(function() {
 		if(GoogleMaps.loaded()) {
 			var service = new google.maps.DistanceMatrixService();
 			var coords = Session.get('location');
-			var origin = new google.maps.LatLng(Number(coords.lat), Number(coords.lng));
-			if(origin) {
-				service.getDistanceMatrix({
-				    origins: [origin],
-				    destinations: Eatsery.find().map(function(eatsery, index) {
-				    	if(Distances.findOne({index: index})) {
-							Distances.update({index: index}, {$set: {
-	    						eatseryId: eatsery._id,
-	    					} });
-						} else {
-							Distances.insert({
-								index: index,
-								eatseryId: eatsery._id,
-							});
-						}
-				    	return String(eatsery.address);
-				    }),
-				    travelMode: google.maps.DirectionsTravelMode.DRIVING,
-				    unitSystem: google.maps.UnitSystem.IMPERIAL,
-			 	}, setDistances);
+			if(coords) {
+				var origin = new google.maps.LatLng(Number(coords.lat), Number(coords.lng));
+				if(origin) {
+					service.getDistanceMatrix({
+					    origins: [origin],
+					    destinations: Eatsery.find().map(function(eatsery, index) {
+					    	if(Distances.findOne({index: index})) {
+								Distances.update({index: index}, {$set: {
+		    						eatseryId: eatsery._id,
+		    					} });
+							} else {
+								Distances.insert({
+									index: index,
+									eatseryId: eatsery._id,
+								});
+							}
+					    	return String(eatsery.address);
+					    }),
+					    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+					    unitSystem: google.maps.UnitSystem.IMPERIAL,
+				 	}, setDistances);
+				}
 			}
 		}
 	});
