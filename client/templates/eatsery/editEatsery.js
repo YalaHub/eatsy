@@ -18,10 +18,10 @@ Template.editEatsery.events({
 
 Template.editEatsery.helpers({
   errorMessage: function(field) {
-    return Session.get('eatserySubmitErrors')[field];
+    return Session.get('editEatseryErrors')[field];
   },
   errorClass: function (field) {
-    return !!Session.get('eatserySubmitErrors')[field] ? 'has-error' : '';
+    return !!Session.get('editEatseryErrors')[field] ? 'has-error' : '';
   },
   eatseryData: function() {
     return {

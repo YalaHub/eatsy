@@ -34,10 +34,10 @@ Template.header.onRendered(function() {
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     var coords = {
-                        lat: place.location.lat(), 
-                        lng: place.location.lng()
+                        lat: place.geometry.location.A, 
+                        lng: place.geometry.location.F
                     };
-                    Session.set('location', place.geometry.location);
+                    Session.set('location', coords);
                 });
             
             } catch(Error) {

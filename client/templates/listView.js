@@ -1,6 +1,17 @@
 Template.listView.helpers( {
 	eatsery: function() {
-		return Eatsery.find({}, {sort: {distance: 1}});
+		if(Distances.find().count() > 0) {
+			return Eatsery.find().map(function(eatsery) {
+				var distance = Distances.findOne({eatseryId: eatsery._id});
+				var eatseryWithDist = _.extend(eatsery, {
+					distanceValue: distance.distanceValue,
+					distanceText: distance.distanceText,
+				});
+				return eatseryWithDist;
+			}).sort( function(a, b) {
+				return a.distanceValue > b.distanceValue;
+			});
+		} 
 	},
 });
 
@@ -13,8 +24,18 @@ Template.listView.onRendered(function() {
 			if(origin) {
 				service.getDistanceMatrix({
 				    origins: [origin],
-				    destinations: Eatsery.find().map(function(eatsery) {
-				    	return eatsery.address;
+				    destinations: Eatsery.find().map(function(eatsery, index) {
+				    	if(Distances.findOne({index: index})) {
+							Distances.update({index: index}, {$set: {
+	    						eatseryId: eatsery._id,
+	    					} });
+						} else {
+							Distances.insert({
+								index: index,
+								eatseryId: eatsery._id,
+							});
+						}
+				    	return String(eatsery.address);
 				    }),
 				    travelMode: google.maps.DirectionsTravelMode.DRIVING,
 				    unitSystem: google.maps.UnitSystem.IMPERIAL,
@@ -28,21 +49,20 @@ var setDistances = function(response, status){
 	if (status == google.maps.DistanceMatrixStatus.OK) {
     	var destinations = response.destinationAddresses;
     	var results = response.rows[0].elements;
-    	var distances = {};
 
 		for (var i = 0; i < results.length; i++) {
 		    var distanceText = results[i].distance.text;
-		    var distanceVal = results[i].distance.value;
+		    var distanceValue = results[i].distance.value;
 	    	var destination  = destinations[i];
-	    	distances[destination]= {
-	    		distText: distanceText,
-	    		distVal: distanceVal
-	    	};
-	    	
+	    	var address = response.destinationAddresses[i];
+	    	Distances.update({index: i}, {$set: {
+	    		distanceText: distanceText,
+	    		distanceValue: distanceValue
+	    	} });
 		}
-		console.log(distances);
     } else {
-    	console.log("error");
+    	console.log("error in set dist function. Google maps Distance matrix did not return okay");
+    	//throwError
     }
 };
 
