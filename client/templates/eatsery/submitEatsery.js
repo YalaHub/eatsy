@@ -1,5 +1,8 @@
 Template.submitEatsery.onCreated(function() {
   Session.set('submitEatseryErrors', {});
+  console.log("pre setupFoursquareSearch");
+  setupFoursquareSearch(47.22, -122.2);
+  console.log("post setupFoursquareSearch");
 });
 
 Template.submitEatsery.events({
@@ -15,9 +18,11 @@ Template.submitEatsery.events({
 		}
 		var resultId = Eatsery.insert(eatsery);
 		Router.go('editEatsery', {_id: resultId});
-
 	}, 
+
 });
+
+
 
 Template.submitEatsery.helpers({
   errorMessage: function(field) {
