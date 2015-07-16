@@ -1,10 +1,3 @@
-Template.submitEatsery.onCreated(function() {
-  Session.set('submitEatseryErrors', {});
-  console.log("pre setupFoursquareSearch");
-  setupFoursquareSearch(47.22, -122.2);
-  console.log("post setupFoursquareSearch");
-});
-
 Template.submitEatsery.events({
 	'submit form': function(e) {
 		e.preventDefault();
@@ -14,7 +7,7 @@ Template.submitEatsery.events({
 		var previoslySubmittedEatsery = Eatsery.findOne({placeId: eatsery.placeId});
 		if(previoslySubmittedEatsery) {
 			console.log("place already inserted!");
-			Router.go('eatseryPage', {_id: previoslySubmittedEatsery._id})
+			return Router.go('eatseryPage', {_id: previoslySubmittedEatsery._id});
 		}
 		var resultId = Eatsery.insert(eatsery);
 		Router.go('editEatsery', {_id: resultId});
