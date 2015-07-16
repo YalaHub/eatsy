@@ -3,13 +3,13 @@ Template.listView.helpers( {
 		if(Distances.find().count() > 0) {
 			return Eatsery.find().map(function(eatsery) {
 				var distance = Distances.findOne({eatseryId: eatsery._id});
-				var eatseryWithDist = _.extend(eatsery, {
+				_.extend(eatsery, {
 					distanceValue: distance.distanceValue,
 					distanceText: distance.distanceText,
 				});
-				return eatseryWithDist;
+				return eatsery;
 			}).sort( function(a, b) {
-				return a.distanceValue > b.distanceValue;
+				return a.distanceValue - b.distanceValue;
 			});
 		} 
 	},
