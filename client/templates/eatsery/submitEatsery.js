@@ -7,9 +7,11 @@ Template.submitEatsery.events({
 		var previoslySubmittedEatsery = Eatsery.findOne({placeId: eatsery.placeId});
 		if(previoslySubmittedEatsery) {
 			console.log("place already inserted!");
+			Session.set('eatsery', {});
 			return Router.go('eatseryPage', {_id: previoslySubmittedEatsery._id});
 		}
 		var resultId = Eatsery.insert(eatsery);
+		Session.set('eatsery', {});
 		Router.go('editEatsery', {_id: resultId});
 	}, 
 
@@ -32,7 +34,8 @@ Template.submitEatsery.onRendered(function() {
         if (GoogleMaps.loaded()) {
             try{
                 var eatseryName = document.getElementById('name');
-                var autocomplete = new google.maps.places.Autocomplete(eatseryName);
+                var autocomplete = new google.maps.places.Autocomplete(eatseryName);;
+
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 	var place = autocomplete.getPlace();
                 	var eatsery = {

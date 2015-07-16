@@ -31,27 +31,27 @@ Template.header.onRendered(function() {
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
                     var coords = {
-                        lat: place.geometry.location.lat(),
-                        lng: place.geometry.location.lng()
+                        lat: place.location.lat(), 
+                        lng: place.location.lng()
                     };
-                    Session.set('location', coords);
+                    Session.set('location', place.geometry.location);
                 });
             
             } catch(Error) {
                 console.log('error');
                 //todo throwError
             }
-        }
-        if(Geolocation) {
-            var currLocation = Geolocation.currentLocation();
-            if(currLocation) {
-                var coords = {
-                    lat: currLocation.coords.latitude,
-                    lng: currLocation.coords.longitude
-                };
-                Session.set('location', coords);
-                $("#location").attr("placeholder", "Using current location..");
+            if(Geolocation) {
+                var currLocation = Geolocation.currentLocation();
+                if(currLocation) {
+                    var coords = {
+                        lat: currLocation.coords.latitude, 
+                        lng: currLocation.coords.longitude
+                    };
+                    Session.set('location', coords);
+                    $("#location").attr("placeholder", "Using current location..");
+                }
             }
-        }
+        } 
     });
 });
