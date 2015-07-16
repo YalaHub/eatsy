@@ -7,9 +7,7 @@ Template.editEatsery.events({
 		e.preventDefault();
 
 		var eatseryAttributes = {
-			name: $(e.target).find('[name=name]').val(),
-			location: $(e.target).find('[name=address]').val(),
-			distance: 2
+      hasPhoto: true,
 		};
 
 		Eatsery.update( this._id, {$set: eatseryAttributes});

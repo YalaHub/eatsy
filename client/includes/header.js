@@ -23,11 +23,38 @@ function init() {
 }
 window.onload = init();
 
+var chosenLocation = {};
 
 Template.header.onRendered(function() {
-  this.autorun(function () {
-    if (GoogleMaps.loaded()) {
-      $("#location").geocomplete();
-    }
-  });
+    this.autorun(function () {
+        if (GoogleMaps.loaded()) {
+            try{
+                var userLocation = document.getElementById('location');
+                var autocomplete = new google.maps.places.Autocomplete(userLocation);
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    var coords = {
+                        lat: place.location.lat(), 
+                        lng: place.location.lng()
+                    };
+                    Session.set('location', place.geometry.location);
+                });
+            
+            } catch(Error) {
+                console.log('error');
+                //todo throwError
+            }
+            if(Geolocation) {
+                var currLocation = Geolocation.currentLocation();
+                if(currLocation) {
+                    var coords = {
+                        lat: currLocation.coords.latitude, 
+                        lng: currLocation.coords.longitude
+                    };
+                    Session.set('location', coords);
+                    $("#location").attr("placeholder", "Using current location..");
+                }
+            }
+        } 
+    });
 });
