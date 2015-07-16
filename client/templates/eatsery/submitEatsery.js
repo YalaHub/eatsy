@@ -42,7 +42,8 @@ Template.submitEatsery.onRendered(function() {
                 		website: place.website,
                 		priceLevel: place.priceLevel,
                 		name: place.name,
-                		location: place.geometry.location
+                		location: place.geometry.location,
+                		hasPhoto: false,
                 	};
                 	Session.set('eatsery', eatsery);
                 });
