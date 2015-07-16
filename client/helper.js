@@ -6,7 +6,3 @@ getImagePath = function(id) {
 		return '/default.jpg';
 	}
 };
-
-pluralize = function(num, word) {
-	return num===1 ? word : word + 's';
-}

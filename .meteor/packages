@@ -17,6 +17,6 @@ audit-argument-checks
 sacha:spin
 dburles:google-maps
 twbs:bootstrap
-insecure
 mdg:geolocation
 underscore
+insecure
