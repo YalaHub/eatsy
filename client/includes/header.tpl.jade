@@ -1,17 +1,16 @@
 .header#header
 	.header-content
+		a(href="{{pathFor 'listView'}}") 
+			.header-logo
 		a(href="{{pathFor 'listView'}}")
 			h1 Where Should I Eatsy
 		.header-search
 			input#location.header-search-input(placeholder="Currect Location")
-			button.header-search-button 
+			button.header-search-button(disabled) 
 				i.fa.fa-search
-		.login-button-container
-			img(src="http://static.wixstatic.com/media/d73cb0_182adf22c8dd4428b8024703291c1f81.png").google-logo
+		.button-container
 			+loginButtons
-		if(currentUser)
-			.filler-large
-			.submit-eatery
-				a(href="{{pathFor 'submitEatsery'}}") Submit Eatsery
+			if(currentUser)
+				a.link-button-style(href="{{pathFor 'submitEatsery'}}") Submit Eatsery
 .toggle#toggle
 	+toggle
