@@ -46,7 +46,6 @@ var setDistances = function(response, status){
 	    	} });
 		}
     } else {
-    	console.log("error in set dist function. Google maps Distance matrix did not return okay");
     	//throwError
     }
 };
