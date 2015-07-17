@@ -1,0 +1,10 @@
+.card-page
+	h2 Add an Admin via Email!
+	form.main.form.page
+		div(class="form-group")
+			label.control-label(for="email")
+			.controls
+				input.form-control#email(name="email", type="text", value="", 
+					placeholder="Enters Admin's Google Email", required="true")
+				input.btn.btn-primary#add-admin-button(type="submit", value="Add Admin")
+				p.status.addAdmin #{status}

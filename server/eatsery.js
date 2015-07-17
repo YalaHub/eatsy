@@ -26,7 +26,7 @@ Meteor.methods({
 			var eatseryId = Eatsery.insert(eatsery);
 			return {_id: eatseryId};
 		} else {
-			return Meteor.Error("Creating new eatseries is only available to admin!");
+			throw new Meteor.Error("Creating new eatseries is only available to admin!");
 		}
 	}
 });

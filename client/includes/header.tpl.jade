@@ -4,7 +4,7 @@
 			.header-logo
 		a(href="{{pathFor 'listView'}}")
 			h1 Where Should I Eatsy
-		if currentUser
+		if isAdmin
 			.header-search.admin
 				+locationBar
 		else 
@@ -12,6 +12,7 @@
 				+locationBar
 		.button-container
 			+loginButtons
-			if(currentUser)
+			if isAdmin
 				a.link-button-style(href="{{pathFor 'addEatsery'}}") Submit Eatsery
+				a(href="{{pathFor 'addAdmin'}}") Add admin..
 

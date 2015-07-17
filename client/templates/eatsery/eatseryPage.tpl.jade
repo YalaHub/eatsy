@@ -2,7 +2,7 @@
 	.card-back-link
 		a(href="{{pathFor 'listView'}}") 
 			i.fa.fa-chevron-left
-	if(currentUser)
+	if(isAdmin)
 		.manage-eatsery
 			a(href="{{pathFor 'editEatsery' }}")
 				.edit-eatsery
