@@ -1,6 +1,5 @@
 Template.addEatsery.events({
 	'submit form': function(e) {
-        console.log("Add eatsery listener!");
 		e.preventDefault();
 		var eatsery = Session.get('eatsery');
         check(eatsery, {
@@ -8,7 +7,6 @@ Template.addEatsery.events({
             address: String,
             placeId: String,
             address: String,
-            hasPhoto: Boolean,
             phone: Match.Optional(String),
             website: Match.Optional(String),
         }); 
@@ -55,7 +53,6 @@ Template.addEatsery.onRendered(function() {
                 		name: place.name,
                         address: place.formatted_address,
                         placeId: place.place_id,
-                		hasPhoto: false,
                 	};
 
                     if(place.website) {

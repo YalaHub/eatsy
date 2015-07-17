@@ -1,9 +1,9 @@
 getImagePath = function(id) {
 	var eatsery = Eatsery.findOne(id);
-	if(eatsery && eatsery.hasPhoto) {
-		return '/' + id + '.jpg';
+	if(eatsery && eatsery.photoUrl) {
+		return eatsery.photoUrl;
 	} else {
-		return '/default.jpg';
+		return 'http://i.imgur.com/03yOCNQ.png?1';
 	}
 };
 

@@ -8,7 +8,6 @@ Meteor.methods({
 			name: String,
 			address: String,
 			placeId: String,
-			hasPhoto: Boolean,
 			phone: Match.Optional(String),
 			website: Match.Optional(String),
 		});	
@@ -41,9 +40,9 @@ Eatsery.allow( {
 Eatsery.deny( {
 	update: function(userId, eatsery, fieldNames, modifier) {
 		check( modifier.$set, {
-			hasPhoto: Boolean}
+			photoUrl: String}
 		);
-		var result = _.without(fieldNames, 'hasPhoto').length !== 0;
+		var result = _.without(fieldNames, 'photoUrl').length !== 0;
 		return result;
 	}
 })

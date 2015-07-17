@@ -36,14 +36,16 @@ var setDistances = function(response, status){
     	var results = response.rows[0].elements;
 
 		for (var i = 0; i < results.length; i++) {
-		    var distanceText = results[i].distance.text;
-		    var distanceValue = results[i].distance.value;
-	    	var destination  = destinations[i];
-	    	var address = response.destinationAddresses[i];
-	    	Distances.update({index: i}, {$set: {
-	    		distanceText: distanceText,
-	    		distanceValue: distanceValue
-	    	} });
+			if(results[i].distance) {
+			    var distanceText = results[i].distance.text;
+			    var distanceValue = results[i].distance.value;
+		    	var destination  = destinations[i];
+		    	var address = response.destinationAddresses[i];
+		    	Distances.update({index: i}, {$set: {
+		    		distanceText: distanceText,
+		    		distanceValue: distanceValue
+		    	} });
+	    	}
 		}
     } else {
     	//throwError

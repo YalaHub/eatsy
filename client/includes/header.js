@@ -15,7 +15,6 @@ Template.header.onRendered(function() {
                 });
             
             } catch(Error) {
-                console.log('error');
                 //todo throwError
             }
             if(Geolocation) {

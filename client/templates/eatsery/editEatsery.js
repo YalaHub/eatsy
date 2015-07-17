@@ -1,13 +1,10 @@
-Template.editEatsery.onCreated(function() {
-  console.log(this);
-});
-
 Template.editEatsery.events({
 	'submit form': function(e) {
 		e.preventDefault();
+    photoUrl=$('#photoUrl').val();
 
 		var eatseryAttributes = {
-      hasPhoto: true,
+      photoUrl: photoUrl,
 		};
 
 		Eatsery.update( this._id, {$set: eatseryAttributes});
