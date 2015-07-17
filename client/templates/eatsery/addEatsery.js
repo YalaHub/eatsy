@@ -2,15 +2,7 @@ Template.addEatsery.events({
 	'submit form': function(e) {
 		e.preventDefault();
 		var eatsery = Session.get('eatsery');
-        check(eatsery, {
-            name: String,
-            address: String,
-            placeId: String,
-            address: String,
-            phone: Match.Optional(String),
-            website: Match.Optional(String),
-        }); 
-
+  
         Meteor.call('addEatsery', eatsery, Meteor.userId() , function(error, result) {
             Session.set('eatsery', {});
             if(error) {
@@ -23,7 +15,7 @@ Template.addEatsery.events({
             }
             return Router.go('editEatsery', {_id: result._id});
 
-        })
+        });
 	}, 
 
 });
