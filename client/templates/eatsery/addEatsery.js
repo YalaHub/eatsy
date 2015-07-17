@@ -1,5 +1,5 @@
 Template.addEatsery.events({
-	'submit form .add-eatsery': function(e) {
+	'submit form': function(e) {
         console.log("Add eatsery listener!");
 		e.preventDefault();
 		var eatsery = Session.get('eatsery');
