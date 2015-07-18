@@ -1,4 +1,4 @@
 isAdmin = function(userId) {
-	var user = Meteor.users.findOne({_id: userId});
-	return user.admin;	
+	check(userId, String);
+	return userId && Meteor.users.findOne({_id: userId}).admin;
 };
