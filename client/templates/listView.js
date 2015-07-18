@@ -7,6 +7,7 @@ Template.listView.helpers( {
 					_.extend(eatsery, {
 						distanceValue: distance.distanceValue,
 						distanceText: distance.distanceText,
+						noDist: false,
 					});
 					return eatsery;
 				} else {
