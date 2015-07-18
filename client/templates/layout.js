@@ -31,23 +31,25 @@ Template.layout.onRendered(function() {
 });
 
 var setDistances = function(response, status){
-	if (status == google.maps.DistanceMatrixStatus.OK) {
-    	var destinations = response.destinationAddresses;
-    	var results = response.rows[0].elements;
+	try{
+		if (status == google.maps.DistanceMatrixStatus.OK) {
+	    	var destinations = response.destinationAddresses;
+	    	var results = response.rows[0].elements;
 
-		for (var i = 0; i < results.length; i++) {
-			if(results[i] && results[i].distance) {
-			    var distanceText = results[i].distance.text;
-			    var distanceValue = results[i].distance.value;
-		    	var destination  = destinations[i];
-		    	var address = response.destinationAddresses[i];
-		    	Distances.update({index: i}, {$set: {
-		    		distanceText: distanceText,
-		    		distanceValue: distanceValue
-		    	} });
-	    	}
-		}
-    } else {
-    	//throwError
-    }
+			for (var i = 0; i < results.length; i++) {
+				if(results[i] && results[i].distance) {
+				    var distanceText = results[i].distance.text;
+				    var distanceValue = results[i].distance.value;
+			    	var destination  = destinations[i];
+			    	var address = response.destinationAddresses[i];
+			    	Distances.update({index: i}, {$set: {
+			    		distanceText: distanceText,
+			    		distanceValue: distanceValue
+			    	} });
+		    	}
+			}
+	    } 
+	} catch(error) {
+    	console.log("Something wrong with distance calculations!");
+    };
 };
