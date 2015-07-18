@@ -2,20 +2,21 @@ Template.addEatsery.events({
 	'submit form': function(e) {
 		e.preventDefault();
 		var eatsery = Session.get('eatsery');
-  
-        Meteor.call('addEatsery', eatsery, Meteor.userId() , function(error, result) {
-            Session.set('eatsery', {});
-            if(error) {
-                //throw error.reason
-            }
+        if(eatsery && eatsery.placeId) {
+            Meteor.call('addEatsery', eatsery, Meteor.userId() , function(error, result) {
+                Session.set('eatsery', {});
+                if(error) {
+                    //throw error.reason
+                }
 
-            if(result.eatseryExists) {
-                //throw error eatsery exists
-                return Router.go('eatseryPage', {_id: result._id})
-            }
-            return Router.go('editEatsery', {_id: result._id});
+                if(result.eatseryExists) {
+                    //throw error eatsery exists
+                    return Router.go('eatseryPage', {_id: result._id})
+                }
+                return Router.go('editEatsery', {_id: result._id});
 
-        });
+            });
+        }
 	}, 
 
 });
