@@ -34,7 +34,7 @@ Template.header.onRendered(function() {
 
 Template.header.helpers( {
     isAdmin: function() {
-        return Meteor.user() ? Meteor.user().admin : false;
+        return Meteor.user() && Meteor.user().admin;
     }
 });
 
