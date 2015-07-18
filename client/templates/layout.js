@@ -36,7 +36,7 @@ var setDistances = function(response, status){
     	var results = response.rows[0].elements;
 
 		for (var i = 0; i < results.length; i++) {
-			if(results[i]) {
+			if(results[i] && results[i].distance) {
 			    var distanceText = results[i].distance.text;
 			    var distanceValue = results[i].distance.value;
 		    	var destination  = destinations[i];
