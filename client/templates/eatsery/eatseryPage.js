@@ -9,6 +9,6 @@ Template.eatseryPage.events( {
 
 Template.eatseryPage.helpers( {
 	isAdmin: function() {
-		return Meteor.user().admin;
+		return Meteor.user() ? Meteor.user().admin : false;
 	}
 })
