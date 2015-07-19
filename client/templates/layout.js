@@ -45,7 +45,8 @@ var setDistances = function(response, status){
 			    	var address = response.destinationAddresses[i];
 			    	Distances.update({index: i}, {$set: {
 			    		distanceText: distanceText,
-			    		distanceValue: distanceValue
+			    		distanceValue: distanceValue,
+			    		hasDist: true
 			    	} });
 		    	}
 			}
