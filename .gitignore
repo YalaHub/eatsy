@@ -2,3 +2,4 @@
 .meteor/meteorite
 *.jpg
 .uploads/tmp/*
+*sublime*
