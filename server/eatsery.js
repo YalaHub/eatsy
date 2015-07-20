@@ -24,9 +24,6 @@ Meteor.methods({
 		}
 
 		if(isAdmin(userId)) {
-			// for(var i = 0; i < 2; i ++) {
-			// 	var eatseryId = Eatsery.insert(eatsery);
-			// }
 			var eatseryId = Eatsery.insert(eatsery);
 			return {_id: eatseryId};
 		} else {
