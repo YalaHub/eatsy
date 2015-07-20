@@ -1,11 +1,9 @@
-@font-face{
-    font-family:"Guardian-EgypTT";
-    src: url("https://www.etsy.com/assets/type/Guardian-EgypTT-Medium.woff") format("woff");
-}
+@import 'client/styles/vars';
+@import 'client/styles/header';
 
 * a {
 	text-decoration: none !important;
-	color: #909090;
+	color: $link-color;
 }
 
 body {
@@ -13,132 +11,7 @@ body {
 	-webkit-text-size-adjust: 100%;
 }
 
-.filler-large {
-	height: 50px;
-}
 
-.header {
-	display: block;
-	background-color: #f56400;
-	height: 400px;
-	width: 100%;
-	display: table;
-}
-
-.header-logo {
-	height: 50px;
-	width: 60px;
-	position: absolute;
-	top: 20px;
-	left: 10px;
-	background-image: url('/logo.png');
-	background-size: cover;
-}
-
-.header-content {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
-}
-
-.header h1 {
-	font-weight: 100;
-	font-size: 60px;
-	color: #fff;
-	font-family: "Guardian-EgypTT";
-}
-
-.header-search {
-	margin-top: 30px;
-}
-
-.header-search-input {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	box-shadow: 0px 0px 5px #999;
-	border: 1px solid #fff;
-	font-size: 15px;
-	width: 300px;
-	padding: 10px;
-	background: #fff;
-}
-
-.header-search-button {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	box-shadow: 2px 0px 5px #999;
-	font-size: 15px;
-	margin-left: -8px;
-	margin-top: 5px;
-	overflow: hidden;
-	padding: 10px 13px 10px 10px;
-	background: #34A8C4;
-	border: 1px solid #34A8C4;
-	color: #fff;
-}
-
-.header-search-input:focus {
-	outline: none;
-	background: #F5F5F1;
-}
-
-.header-search-button:focus {
-	outline: none;
-	border: 1px solid #fff;
-}
-
-.smaller {
-	top: 0px;
-	position: fixed;
-	height: 100px;
-}
-
-.smaller h1 {
-	display: none;
-}
-
-.smaller .header-search.user {
-	position: absolute;
-	width: 57%;
-	left: 80px;
-	top: -10px;
-}
-
-.smaller .header-search.user .header-search-input {
-	width: 80%;
-}
-
-.smaller .header-search.admin {
-	width: 100%;
-	background: #f56400;
-	display: block;
-	position: absolute;
-	top: 60px;
-	padding-bottom: 20px;
-}
-
-.smaller .header-search.admin .use-current-location {
-	text-align: left;
-	margin-top: 5px;
-	margin-left: 15px;
-}
-
-.smaller .header-search.user .use-current-location {
-	text-align: left;
-	margin-top: 5px;
-	margin-left: 10px;
-}
-
-.smaller .header-search.admin .header-search-input {
-	width: 85%;
-}
-
-.smaller .submit-eatery {
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	margin: 31px 330px 0 0;
-}
 
 .content {
 	padding: 30px;
