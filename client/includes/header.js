@@ -1,39 +1,5 @@
 Template.header.onRendered(function() {
     init();
-    this.autorun(function () {
-        if (GoogleMaps.loaded()) {
-            try{
-                var userLocation = document.getElementById('location');
-                var autocomplete = new google.maps.places.Autocomplete(userLocation);
-                google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                    var place = autocomplete.getPlace();
-
-                    var geometry = {
-                        "type": "Point",
-                        "coordinates": [place.geometry.location.lng(),
-                         place.geometry.location.lat()]
-                    };
-
-                    Session.set('location', geometry);
-                });
-            
-            } catch(Error) {
-                //todo throwError
-            }
-            if(Geolocation) {
-                var currLocation = Geolocation.currentLocation();
-                if(currLocation) {
-                    var geometry = {
-                        "type": "Point",
-                        "coordinates": [currLocation.coords.longitude,
-                         currLocation.coords.latitude]
-                    };
-                    Session.set('location', geometry);
-                    $("#location").attr("placeholder", "Using current location..");
-                }
-            }
-        } 
-    });
 });
 
 Template.header.helpers( {
