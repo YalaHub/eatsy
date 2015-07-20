@@ -1,6 +1,9 @@
 Meteor.startup(function() {
 	Tracker.autorun(function() {
-		Meteor.subscribe('eatsery', Session.get('location'));
+		var location = Session.get('location')
+		if(location) {
+			Meteor.subscribe('eatsery', location);
+		}
 	});
 
 	GoogleMaps.load({

@@ -1,4 +1,4 @@
-header .header
+.header
 	display: block
 	background-color: $background-color
 	height: 400px
@@ -61,52 +61,49 @@ header .header
 			outline: none
 			border: 1px solid #fff
 
-	.smaller 
+.smaller 
+	top: 0px
+	position: fixed
+	height: 100px
+
+	h1 
+		display: none
+
+
+	.header-search.user 
+		position: absolute
+		width: 57%
+		left: 80px
+		top: -10px
+
+
+		.header-search-input 
+			width: 80%
+
+		.use-current-location
+			text-align: left
+			margin-top: 5px
+			margin-left: 10px
+
+
+	.header-search.admin 
+		position: absolute
+		top: -8px
+		left: 90px
+
+
+		.use-current-location
+			text-align: left
+			margin-top: 5px
+			margin-left: 15px
+
+
+
+		.header-search-input 
+			width: 85%
+
+	.submit-eatery 
+		position: absolute
+		right: 0px
 		top: 0px
-		position: fixed
-		height: 100px
-
-		h1 
-			display: none
-
-
-		.header-search.user 
-			position: absolute
-			width: 57%
-			left: 80px
-			top: -10px
-
-
-			.header-search-input 
-				width: 80%
-
-			.use-current-location
-				text-align: left
-				margin-top: 5px
-				margin-left: 10px
-
-
-		.header-search.admin 
-			width: 100%
-			background: $background-color
-			display: block
-			position: absolute
-			top: 60px
-			padding-bottom: 20px
-
-
-			.use-current-location
-				text-align: left
-				margin-top: 5px
-				margin-left: 15px
-
-
-
-			.header-search-input 
-				width: 85%
-
-		.submit-eatery 
-			position: absolute
-			right: 0px
-			top: 0px
-			margin: 31px 330px 0 0
+		margin: 31px 330px 0 0
