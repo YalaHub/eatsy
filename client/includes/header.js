@@ -7,11 +7,14 @@ Template.header.onRendered(function() {
                 var autocomplete = new google.maps.places.Autocomplete(userLocation);
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                     var place = autocomplete.getPlace();
-                    var coords = {
-                        lat: place.geometry.location.A, 
-                        lng: place.geometry.location.F
+
+                    var geometry = {
+                        "type": "Point",
+                        "coordinates": [place.geometry.location.lng(),
+                         place.geometry.location.lat()]
                     };
-                    Session.set('location', coords);
+
+                    Session.set('location', geometry);
                 });
             
             } catch(Error) {
@@ -20,11 +23,12 @@ Template.header.onRendered(function() {
             if(Geolocation) {
                 var currLocation = Geolocation.currentLocation();
                 if(currLocation) {
-                    var coords = {
-                        lat: currLocation.coords.latitude, 
-                        lng: currLocation.coords.longitude
+                    var geometry = {
+                        "type": "Point",
+                        "coordinates": [currLocation.coords.longitude,
+                         currLocation.coords.latitude]
                     };
-                    Session.set('location', coords);
+                    Session.set('location', geometry);
                     $("#location").attr("placeholder", "Using current location..");
                 }
             }

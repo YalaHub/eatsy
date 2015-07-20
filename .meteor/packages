@@ -17,3 +17,5 @@ mdg:geolocation
 underscore
 accounts-password
 accounts-ui
+aldeed:geocoder
+outatime:geolib

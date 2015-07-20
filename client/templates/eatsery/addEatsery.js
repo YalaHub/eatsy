@@ -7,9 +7,10 @@ Template.addEatsery.events({
                 Session.set('eatsery', {});
                 if(error) {
                     //throw error.reason
+                    console.log("Error " + error);
                 }
 
-                if(result.eatseryExists) {
+                if(result && result.eatseryExists) {
                     //throw error eatsery exists
                     return Router.go('eatseryPage', {_id: result._id})
                 }
@@ -38,13 +39,20 @@ Template.addEatsery.onRendered(function() {
         if (GoogleMaps.loaded()) {
             try{
                 var eatseryName = document.getElementById('name');
-                var autocomplete = new google.maps.places.Autocomplete(eatseryName);;
+                var autocomplete = new google.maps.places.Autocomplete(eatseryName);
 
                 google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 	var place = autocomplete.getPlace();
+                    var location = place.geometry.location;
+
+                    var geometry = {
+                        "type": "Point",
+                        "coordinates": [location.lng(), location.lat()]
+                    }
                 	var eatsery = {
                 		name: place.name,
                         address: place.formatted_address,
+                        geometry: geometry,
                         placeId: place.place_id,
                 	};
 

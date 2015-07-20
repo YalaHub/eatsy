@@ -1,5 +1,6 @@
-Meteor.publish('eatsery', function() {
-	return Eatsery.find({}, {sort: {distance: 1}});
+Meteor.publish('eatsery', function(currentLocation) {
+	check(currentLocation, Object);
+	return Eatsery.find({geometry: {$near: {$geometry: currentLocation}}});
 });
 
 Meteor.methods({
@@ -8,6 +9,7 @@ Meteor.methods({
 			name: String,
 			address: String,
 			placeId: String,
+			geometry: Object,
 			phone: Match.Optional(String),
 			website: Match.Optional(String),
 		});	
@@ -22,6 +24,9 @@ Meteor.methods({
 		}
 
 		if(isAdmin(userId)) {
+			// for(var i = 0; i < 2; i ++) {
+			// 	var eatseryId = Eatsery.insert(eatsery);
+			// }
 			var eatseryId = Eatsery.insert(eatsery);
 			return {_id: eatseryId};
 		} else {
