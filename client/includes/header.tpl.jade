@@ -3,7 +3,7 @@
 		a(href="{{pathFor 'listView'}}") 
 			.header-logo
 		a(href="{{pathFor 'listView'}}")
-			h1 Where Should I Eatsy
+			h1 Where Should I Eatsy?
 		if isAdmin
 			.header-search.admin
 				+locationBar
@@ -13,4 +13,4 @@
 		.button-container
 			+loginButtons(align="right")
 			if isAdmin
-				a.link-button-style(href="{{pathFor 'addEatsery'}}") Submit Eatsery
+				a.link-button-style.addEatsery(href="{{pathFor 'addEatsery'}}") Add an Eatsery!

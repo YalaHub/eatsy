@@ -1,64 +1,59 @@
 @media screen and (max-device-width: 375px)
 
-	.header
-		background: blue !important
+	.header, .smaller
 		position: fixed
 		top: 0px
 		width: 100%
-		height: 160px
+		height: 100px
 
-	.header 
+		.header-search, .header-search.admin, .header-search.user
+			margin-top: 0
+			position: absolute
+			left: 85px
+			top: 20px
+			width: 70%
+			padding-bottom: 0
+
+			.header-search-input
+				width: 80% 
+			
+			.use-current-location
+				display: none
+				text-align: left
+				margin-top: 10px
+				margin-left: 55px
+
+		#login-name-link, .addEatsery
+			display: none
 		h1
 			display: none
-
-	.content
-		width: 100%
-		padding: 20px
-		margin: 160px 0 0 0
-
-	.cards-container
-		width: 100%
-		margin: 0
-		padding: 10px
-
-	.card
-		width: 80%
-		height: 70%
-		padding: 0px
-		margin: 10px
-
-	.card-page
-		width: 100%
-		margin-bottom: 20px
-
-	.card-image-preview
-		height: 500px
-		border-top-left-radius: 5px
-		border-top-right-radius: 5px
-
-	.card-page-image
-		width: 100%
-		height: 500px
-
-	.header 
-		h1
 			font-size: 45px
 
-	.submit-eatery
-		position: absolute
-		right: 220px
-		top: 20px
-
-	.toggle
-		display: none
-
-	.header-search
-		padding-top: 30px
+	#content
 		width: 100%
+		padding: 0px
+		margin: 100px 0 0 0
 
-	.header-search-input
-		width: 83% !important
+		.cards-container
+			width: 100%
+			margin: 0
+			padding: 10px
 
-	.uploadPanel
-		width: 100%
-	
+			.card
+				width: 95%
+				height: 70%
+				padding: 0px
+				margin: 10px
+
+				.card-image-preview
+					height: 200px
+					border-top-left-radius: 5px
+					border-top-right-radius: 5px
+
+		.card-page
+			width: 100%
+			margin-bottom: 20px
+
+			.card-page-image
+			width: 100%
+			height: 500px
