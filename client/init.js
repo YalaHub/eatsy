@@ -5,12 +5,6 @@ Meteor.startup(function() {
 			Meteor.subscribe('eatsery', location);
 		}
 	});
-
-	GoogleMaps.load({
-		v: '3',
-  		key: 'AIzaSyCc7dxUtKyvEVFk3o-nqvJptwvNxE5WDJo',
-    	libraries: 'places'
-	});
 });
 
 

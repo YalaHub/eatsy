@@ -1,4 +1,14 @@
 Template.locationBar.onRendered(function() {
+    GoogleMaps.load({
+            v: '3',
+            key: 'AIzaSyCc7dxUtKyvEVFk3o-nqvJptwvNxE5WDJo',
+            libraries: 'places'
+         });
+
+    Tracker.autorun( function(computation) {
+        useCurrentLocation(computation);
+    });
+
     this.autorun(function () {
         if (GoogleMaps.loaded()) {
             try{
@@ -20,7 +30,6 @@ Template.locationBar.onRendered(function() {
             } catch(Error) {
                 //todo throwError
             }
-            useCurrentLocation();
         } 
     });
 });
@@ -31,20 +40,31 @@ Template.locationBar.events( {
 	}
 })
 
-var useCurrentLocation = function() {
+useCurrentLocation = function(computation) {
     if(Geolocation) {
+        var ETSY_LAT = 40.702637;
+        var ETSY_LNG = -73.989406;
+
         var currLocation = Geolocation.currentLocation();
+        var geometry = {"type": "Point"};
         if(currLocation) {
-            var geometry = {
-                "type": "Point",
-                "coordinates": [currLocation.coords.longitude,
-                 currLocation.coords.latitude]
-            };
-            Session.set('location', geometry);
-            $('.use-current-location').hide()
-            $("#location").attr("placeholder", "Using current location...");
-            $("#location").val("");
+            geometry.coordinates = [currLocation.coords.longitude, 
+             currLocation.coords.latitude];
+            if(computation) {
+                computation.stop();
+            }
+            useCurrentLocationMessaging();
+        } else {
+            geometry.coordinates = [ETSY_LNG, 
+             ETSY_LAT];
 
         }
+        Session.set('location', geometry);
     }
+}
+
+var useCurrentLocationMessaging = function() {
+    $('.use-current-location').hide()
+    $("#location").attr("placeholder", "Using current location...");
+    $("#location").val("");
 }
