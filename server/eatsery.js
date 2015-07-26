@@ -1,8 +1,3 @@
-Meteor.publish('eatsery', function(currentLocation) {
-	check(currentLocation, Object);
-	return Eatsery.find({geometry: {$near: {$geometry: currentLocation}}});
-});
-
 Meteor.methods({
 	addEatsery: function(eatsery, userId) {
 		check(eatsery, {
